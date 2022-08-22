@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    ul{
+        list-style-type: none;
+        
+    }
+</style>
+
+</head>
+<body>
+    <button class="btn btn-outline-primary"  (click)="gotoabout()">app.gotoabout</button>
+    <h1>TAMILNADU HOUSE CONTRUCTION </h1>
+    <p>How would you describe your home? What is the difference between 'home' and 'house'? We asked members from our Learn English community to describe their homes and we've featured a selection of contributions.
+    The word ‘home’ is not used to talk about a building. It’s used in a more emotional way, to talk about the place where you live.  </p>
+    <p>Today Date and Time as on Home loaction {{ day | date:'dd-MM-yyyy : HH-mm-ss' }}</p>
+    <p>The building was built on {{day1 | date:'dd-MM-yyyy'}} <strong>meters</strong></p>
+    <p>Height of the House : {{num | number: '0.0-3'}} <strong>meters</strong></p>
+    <p>Width of the HOuse: {{num1 | number: '0-2.0-10'}} <strong>meters</strong></p>
+    <p>Length of the House: {{num2 | number: '0.0-3'}} <strong>meters</strong></p>
+    <p>Total Square meters of the House is : {{sqr|number: '0.0-10'}}</p>
+    <p>Percentage of the peoples liked this house: {{percentage1 | percent:'2.0-1'}}</p>
+    <p>Net worth of the building is : {{cur | currency:'EUR'}}</p>
+    <ul class="btn-group" role="group"  aria-label="Basic radio toggle button group">
+        <li class="nav-item">
+            <a class="btn btn-outline-primary" routerLink="/about" [skipLocationChange]="true">AboutHome</a>
+    
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-outline-primary" routerLink="/contact" [skipLocationChange]="true">ContactAddress</a>
+    
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-outline-primary" routerLink="/home" [state]="{name:'bala', email:'bala@gamil.com'}"[skipLocationChange]="true">HomeImage</a>
+    
+        </li>
+    
+        
+    
+    </ul>
+    
+    <hr>
+    <router-outlet></router-outlet>
+</body>
+</html>
+
