@@ -1,26 +1,33 @@
-<form (ngSubmit)="onsubmit(userForm)" #userForm="ngForm">
+<form (ngSubmit)="onsubmit(userForm)" #userForm="ngForm" >
+  <div ngModelGroup="NameDetails">
   <div class="col-md-4">
-    <label for="validationDefault01" class="form-label">First name</label>
-    <input type="text" ngModel name="FirstName" class="form-control" id="validationDefault01" value="Mark" required>
+    <label for="validationDefault01" class="form-label">First name</label >
+    <input type="text" ngModel name="FirstName" class="form-control ng" id="validationDefault01" value="Mark" required #first="ngModel" >
+    <span class="child-block spn"  *ngIf="first.invalid">Please enter valid FirstName</span>
   </div>
   <div class="col-md-4">
     <label for="validationDefault02" class="form-label">Last name</label>
-    <input type="text" ngModel name="lastName" class="form-control" id="validationDefault02" value="Otto" required>
+    <input type="text" ngModel name="lastName" class="form-control" id="validationDefault02" value="Otto" required #last="ngModel">
+    <span class="child-block spn" *ngIf="last.invalid">Please enter valid lastname</span>
   </div>
+</div>
   <div class="col-md-4">
     <label for="validationDefaultUsername" class="form-label">Username</label>
     <div class="input-group">
       <span class="input-group-text" id="inputGroupPrepend2">@</span>
-      <input type="text" ngModel name="UserdName" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required email>
+      <input type="text" ngModel name="UserdName" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required email #user="ngModel">
+      <span class="child-block spn" *ngIf="user.invalid">Please enter valid userName</span>
     </div>
   </div>
+  <div ngModelGroup="AddressDetails">
   <div class="col-md-6">
     <label for="validationDefault03" class="form-label">City</label>
-    <input type="text" ngModel name="Cityy" class="form-control" id="validationDefault03" required>
+    <input type="text" ngModel name="Cityy" class="form-control" id="validationDefault03" required #city="ngModel">
+    <span class="child-block spn" *ngIf="city.invalid">Please enter valid cityName</span>
   </div>
   <div class="col-md-3">
     <label for="validationDefault04" class="form-label">State</label>
-    <select  class="form-select" id="validationDefault04" required>
+    <select   ngModel class="form-select" id="validationDefault04" required>
       <option selected disabled value="">Choose...</option>
       <option>TamilNadu</option>
       <option>Pondicherry</option>
@@ -31,17 +38,24 @@
   </div>
   <div class="col-md-3">
     <label for="validationDefault05" class="form-label">Zip</label>
-    <input type="text"  ngModel name="ZipCode" class="form-control" id="validationDefault05" required>
+    <input type="text"  ngModel name="ZipCode" class="form-control" id="validationDefault05" required #zip="ngModel">
+    <span class="child-block spn" *ngIf="zip.invalid">Please enter valid ZipCode</span>
   </div>
+</div>
+  
   <div class="col-12">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+      <input class="form-check-input" ngModel name="CheckOut" type="checkbox" value="" id="invalidCheck2" required>
       <label class="form-check-label" for="invalidCheck2">
         Agree to terms and conditions
       </label>
     </div>
   </div>
   <div class="col-12">
-    <button class="btn btn-primary" type="submit"  [disabled]="userForm.invalid">Submit form</button>
+    <button class="btn btn-primary" type="submit"  [disabled]="!userForm.valid">Submit form</button>
+    <button class="btn btn-primary" type="submit"  (click)="setValue()">Default value</button>
+    <button class="btn btn-primary" type="submit"  (click)="setDefaultValue()">Refresh</button>
+    <button class="btn btn-primary" type="submit"  (click)="valueCorrection()">PatchValue</button> 
+
   </div>
 </form>
