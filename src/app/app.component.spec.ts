@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Form-New'`, () => {
+  it(`should have as title 'LazyLoading'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Form-New');
+    expect(app.title).toEqual('LazyLoading');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Form-New app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('LazyLoading app is running!');
   });
 });

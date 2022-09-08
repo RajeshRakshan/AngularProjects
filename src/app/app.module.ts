@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import{FormsModule} from '@angular/forms'
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LazyHomeComponent } from './lazy-home/lazy-home.component';
+import { LazyAboutComponent } from './lazy-about/lazy-about.component';
+import { LazyContentComponent } from './lazy-content/lazy-content.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LazyHomeComponent,
+    // LazyAboutComponent,
+    // LazyContentComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,FormsModule
+    BrowserModule, 
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-
+import { Component } from '@angular/core';
+import{Router} from '@angular/router'
 
 @Component({
   selector: 'app-root',
@@ -8,37 +7,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Form-New';
-
-onsubmit=(userForm:NgForm)=>{
-console.log(JSON.stringify(userForm.value));
+  title = 'LazyLoading';
+constructor(public router:Router){
 }
-@ViewChild('userForm') uf:NgForm
-setValue(){
-  this.uf.setValue(
-    {"NameDetails":{"FirstName":"Rajesh","lastName":"RakeshJay"},
-    "UserdName":"rajeshrakshan1989@gmail.com",
-    "AddressDetails":{"Cityy":"cuddalore","ZipCode":"607002"},
-    "CheckOut":true}
-  ) 
+gotoabout(){
+
+  this.router.navigateByUrl("/lazy-about")
 }
-
-setDefaultValue(){
-  this.uf.setValue(
-    {"NameDetails":{"FirstName":"","lastName":""},
-    "UserdName":"",
-    "AddressDetails":{"Cityy":"","ZipCode":""},
-    "CheckOut":false}
-  ) 
-}
-valueCorrection(){
-  this.uf.form.patchValue(
-    {"NameDetails":{"FirstName":"Rakshan","lastName":"Jayashree"}}
-  ) 
-}
-
-
-
 
 
 

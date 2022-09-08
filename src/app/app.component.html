@@ -1,61 +1,33 @@
-<form (ngSubmit)="onsubmit(userForm)" #userForm="ngForm" >
-  <div ngModelGroup="NameDetails">
-  <div class="col-md-4">
-    <label for="validationDefault01" class="form-label">First name</label >
-    <input type="text" ngModel name="FirstName" class="form-control ng" id="validationDefault01" value="Mark" required #first="ngModel" >
-    <span class="child-block spn"  *ngIf="first.invalid">Please enter valid FirstName</span>
-  </div>
-  <div class="col-md-4">
-    <label for="validationDefault02" class="form-label">Last name</label>
-    <input type="text" ngModel name="lastName" class="form-control" id="validationDefault02" value="Otto" required #last="ngModel">
-    <span class="child-block spn" *ngIf="last.invalid">Please enter valid lastname</span>
-  </div>
-</div>
-  <div class="col-md-4">
-    <label for="validationDefaultUsername" class="form-label">Username</label>
-    <div class="input-group">
-      <span class="input-group-text" id="inputGroupPrepend2">@</span>
-      <input type="text" ngModel name="UserdName" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required email #user="ngModel">
-      <span class="child-block spn" *ngIf="user.invalid">Please enter valid userName</span>
-    </div>
-  </div>
-  <div ngModelGroup="AddressDetails">
-  <div class="col-md-6">
-    <label for="validationDefault03" class="form-label">City</label>
-    <input type="text" ngModel name="Cityy" class="form-control" id="validationDefault03" required #city="ngModel">
-    <span class="child-block spn" *ngIf="city.invalid">Please enter valid cityName</span>
-  </div>
-  <div class="col-md-3">
-    <label for="validationDefault04" class="form-label">State</label>
-    <select   ngModel class="form-select" id="validationDefault04" required>
-      <option selected disabled value="">Choose...</option>
-      <option>TamilNadu</option>
-      <option>Pondicherry</option>
-      <option>Kerala</option>
-      <option>Karnataka</option>
-
-    </select>
-  </div>
-  <div class="col-md-3">
-    <label for="validationDefault05" class="form-label">Zip</label>
-    <input type="text"  ngModel name="ZipCode" class="form-control" id="validationDefault05" required #zip="ngModel">
-    <span class="child-block spn" *ngIf="zip.invalid">Please enter valid ZipCode</span>
-  </div>
-</div>
-  
-  <div class="col-12">
-    <div class="form-check">
-      <input class="form-check-input" ngModel name="CheckOut" type="checkbox" value="" id="invalidCheck2" required>
-      <label class="form-check-label" for="invalidCheck2">
-        Agree to terms and conditions
-      </label>
-    </div>
-  </div>
-  <div class="col-12">
-    <button class="btn btn-primary" type="submit"  [disabled]="!userForm.valid">Submit form</button>
-    <button class="btn btn-primary" type="submit"  (click)="setValue()">Default value</button>
-    <button class="btn btn-primary" type="submit"  (click)="setDefaultValue()">Refresh</button>
-    <button class="btn btn-primary" type="submit"  (click)="valueCorrection()">PatchValue</button> 
-
-  </div>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+  ul{list-style-type: none;}
+</style>
+</head>
+<body>
+  <button class="btn btn-outline-primary"  (click)="gotoabout()">app.gotoabout</button>
+    <h1>TAMILNADU HOUSE CONTRUCTION </h1>
+    <p>How would you describe your home? What is the difference between 'home' and 'house'? We asked members from our Learn English community to describe their homes and we've featured a selection of contributions.
+    The word ‘home’ is not used to talk about a building. It’s used in a more emotional way, to talk about the place where you live.  </p>
+    <ul class="btn-group" role="group"  aria-label="Basic radio toggle button group">
+        <li class="nav-item">
+            <a class="btn btn-outline-primary" routerLink="/lazy-about" [skipLocationChange]="true">Lazy-About</a>
+    
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-outline-primary" routerLink="/lazy-content" [skipLocationChange]="true">Lazy-Content</a>
+    
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-outline-primary" routerLink="/lazy-home" [state]="{name:'bala', email:'bala@gamil.com'}"[skipLocationChange]="true">Lazy-Home</a>
+        </li>
+    </ul>
+    <hr>
+    <router-outlet></router-outlet> 
+</body> 
+</html>
